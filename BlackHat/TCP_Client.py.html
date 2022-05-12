@@ -1,0 +1,23 @@
+<html><head>
+<title>TCP_Client.py</title>
+<meta name="Generator" content="htmlizer/[Twisted, version 18.9.0]" />
+<link rel="alternate" href="TCP_Client.py" type="text/x-python" />
+
+</head>
+<body>
+<pre><span class="py-src-variable">import</span> <span class="py-src-variable">socket</span>
+<span class="py-src-variable">target_host</span> = <span class="py-src-string">&quot;www.google.com&quot;</span>
+<span class="py-src-variable">target_port</span> = <span class="py-src-number">80</span>
+<span class="py-src-comment"># create a socket object</span>
+<span class="py-src-variable">client</span> = <span class="py-src-variable">socket</span>.<span class="py-src-variable">socket</span>(<span class="py-src-variable">socket</span>.<span class="py-src-variable">AF_INET</span>, <span class="py-src-variable">socket</span>.<span class="py-src-variable">SOCK_STREAM</span>)
+<span class="py-src-comment"># connect the client</span>
+<span class="py-src-variable">client</span>.<span class="py-src-variable">connect</span>((<span class="py-src-variable">target_host</span>, <span class="py-src-variable">target_port</span>))
+<span class="py-src-comment"># send some data</span>
+<span class="py-src-variable">client</span>.<span class="py-src-variable">send</span>(<span class="py-src-string">&#x27;GET / HTTP/1.1\r\nHost: google.com\r\n\r\n&#x27;</span>)
+<span class="py-src-comment"># receive some data</span>
+<span class="py-src-variable">response</span> = <span class="py-src-variable">client</span>.<span class="py-src-variable">recv</span>(<span class="py-src-number">4096</span>)
+
+<span class="py-src-variable">print</span>(<span class="py-src-variable">response</span>)
+
+</pre>
+</body>
